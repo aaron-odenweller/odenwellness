@@ -1,0 +1,148 @@
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+$color-pale: #cec8ff;
+$color-evergreen: #004d40;
+$color-dark: #60106b;
+$color-script-main: #ff8a65;
+$color-transparent-black: rgba(0, 0, 0, 0.5);
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+header {
+  height: 120vh;
+  min-height: 400px;
+  background-position: center;
+  background-size: cover;
+  background-image: url("../img/rainier.jpg");
+}
+
+.site-footer {
+  background-image: linear-gradient(#b7a8f8, white);
+  padding: 20px 0px;
+}
+
+.row-content {
+  padding: 50px 0;
+  border-bottom: 1px ridge;
+  min-height: 100px;
+}
+
+#loginModal {
+  .modal-header {
+    background-color: $color-evergreen;
+    color: $color-script-main;
+    font-family: "script-font", Arial, sans-serif;
+    font-size: 3rem;
+    letter-spacing: -0.02em;
+  }
+}
+
+.navbar-clean {
+  @extend .navbar-light;
+  @extend .fixed-top;
+}
+
+.navbar-default {
+  transition: 0.3s;
+  @extend .navbar-dark;
+  @extend .fixed-top;
+  background-color: $color-evergreen;
+}
+
+// .carousel-caption {
+//   background-color: rgba(53, 45, 45, 0.5);
+// }
+
+// .carousel {
+//   border: solid $color-secondary;
+// }
+
+// #carouselButton {
+//   position: absolute;
+//   right: 0;
+//   bottom: 0;
+// }
+
+.welcome {
+  font-family: "script-font", Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 5rem;
+  line-height: 1em;
+  padding: 0;
+  letter-spacing: -0.02em;
+  overflow: hidden;
+  color: $color-script-main;
+  position: absolute;
+}
+.welcome-small {
+  font-family: "script-font", Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1em;
+  padding: 0;
+  letter-spacing: -0.02em;
+  overflow: hidden;
+  color: $color-script-main;
+  position: absolute;
+  margin: 0.15rem 0 0 2rem;
+}
+
+.welcome-nav {
+  font-family: "script-font", Arial, sans-serif;
+  color: $color-script-main;
+  font-size: 4rem;
+}
+
+@font-face {
+  font-family: "script-font";
+  src: url("../fonts/eustachio_demo_version-webfont.woff") format("woff2");
+  src: url("../fonts/eustachio_demo_version-webfont.woff2") format("woff");
+}
+
+@media (min-width: 576px) {
+  .welcome {
+    font-size: 8rem;
+  } /*1rem = 16px*/
+  .welcome-small {
+    margin: 0.5rem 0 0 3.25rem;
+    font-size: 1.25rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {
+  .welcome {
+    font-size: 12rem;
+  } /*1rem = 16px*/
+  .welcome-small {
+    margin: 1rem 0 0 6rem;
+
+    font-size: 1.75rem;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .welcome {
+    font-size: 16rem;
+  } /*1rem = 16px*/
+  .welcome-small {
+    margin: 1.5rem 0 0 8.5rem;
+    font-size: 2rem;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .welcome {
+    font-size: 19rem;
+  } /*1rem = 16px*/
+  .welcome-small {
+    margin: 2rem 0 0 10rem;
+    font-size: 2rem;
+  }
+}

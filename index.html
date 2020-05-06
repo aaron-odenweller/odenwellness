@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- build:css css/main.css -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- endbuild -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" />
+
+    <title>Odenwellness</title>
+    <link rel="icon" href="./img/tree-solid.svg" />
+  </head>
+  <body>
+    <header id="main-header">
+      <div class="container">
+        <nav class="navbar navbar-expand-sm navbar-clean">
+          <div class="container-fluid">
+            <div class="col-6 d-block d-sm-none welcome-nav">Odenwellness</div>
+            <!-- <a class="navbar-brand" href="#"><img src="img/logo.png" height="30" width="30" /></a> -->
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#odenwellnessNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="odenwellnessNavbar">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#"><i class="fa fa-home fa-lg"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="delete.html"><i class="fa fa-info fa-lg"></i> Delete</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"><i class="fa fa-list fa-lg"></i> Sites</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"><i class="fa fa-address-card fa-lg"></i> Contact</a>
+                </li>
+              </ul>
+              <!-- Control Modal -->
+              <span class="navbar-text ml-auto">
+                <a id="loginButton" class="btn"> <i class="fa fa-sign-in"></i> Login</a>
+              </span>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col pt-3">
+            <div class="col pt-5 text-md-center d-none d-sm-block">
+              <div class="welcome-small text-left">Welcome to...</div>
+              <div class="col welcome">Odenwellness</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Login Model Code: -->
+    <div id="loginModal" class="modal fade" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header pt-1 pb-1">
+            <div class="modal-title">Login</div>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <!-- NOTE: &times makes the x -->
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <form>
+                <div class="form-row">
+                  <div class="form-group col-12">
+                    <label class="sr-only" for="loginEmail">Email address</label>
+                    <input type="email" class="form-control form-control-sm" id="loginEmail" placeholder="Enter email" />
+                  </div>
+                  <div class="form-group col-12">
+                    <label class="sr-only" for="loginPassword">Password</label>
+                    <input type="password" class="form-control form-control-sm" id="loginPassword" placeholder="Password" />
+                  </div>
+                  <div class="col">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" />
+                      <label class="form-check-label"> Remember me </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal Code -->
+
+    <!-- Optional JavaScript -->
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+      $(function () {
+        var header = $(".navbar");
+
+        $(window).scroll(function () {
+          var scroll = $(window).scrollTop();
+          if (scroll >= 50) {
+            header.removeClass("navbar-clean");
+            header.addClass("navbar-default");
+          } else {
+            header.removeClass("navbar-default");
+            header.addClass("navbar-clean");
+          }
+        });
+
+        $("#loginButton").click(function () {
+          $("#loginModal").modal("show");
+        });
+
+        $("#odenwellnessNavbar").on("show.bs.collapse	", function () {
+          $(".navbar").addClass("navbar-default");
+        });
+
+        $("#odenwellnessNavbar").on("hide.bs.collapse", function () {
+          $(".navbar").removeClass("navbar-default");
+        });
+      });
+    </script>
+  </body>
+</html>
