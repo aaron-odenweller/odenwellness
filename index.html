@@ -24,7 +24,16 @@
           <div class="container-fluid">
             <div class="col-6 d-block d-sm-none welcome-nav">Odenwellness</div>
             <!-- <a class="navbar-brand" href="#"><img src="img/logo.png" height="30" width="30" /></a> -->
-            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#odenwellnessNavbar">
+            <button
+              id="hamburger-btn"
+              class="navbar-toggler ml-auto"
+              type="button"
+              data-toggle="collapse"
+              data-target="#odenwellnessNavbar"
+              role="button"
+              aria-expanded="false"
+              aria-controls="odenwellnessNavbar"
+            >
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="odenwellnessNavbar">
@@ -112,12 +121,17 @@
 
         $(window).scroll(function () {
           var scroll = $(window).scrollTop();
+
           if (scroll >= 50) {
-            header.removeClass("navbar-clean");
-            header.addClass("navbar-default");
+            if ($("#hamburger-btn").attr("aria-expanded") == "false") {
+              header.removeClass("navbar-clean");
+              header.addClass("navbar-default");
+            }
           } else {
-            header.removeClass("navbar-default");
-            header.addClass("navbar-clean");
+            if ($("#hamburger-btn").attr("aria-expanded") == "false") {
+              header.removeClass("navbar-default");
+              header.addClass("navbar-clean");
+            }
           }
         });
 
