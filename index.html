@@ -7,7 +7,9 @@
 
     <!-- build:css css/main.css -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css" />
+    <!-- <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" /> -->
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <!-- endbuild -->
@@ -42,18 +44,21 @@
                   <a class="nav-link" href="#"><i class="fa fa-home fa-lg"></i> Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="delete.html"><i class="fa fa-info fa-lg"></i> Delete</a>
+                  <a class="nav-link" href="delete.html"><i class="fa fa-wallet fa-lg"></i> Budget</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link"><i class="fa fa-list fa-lg"></i> Sites</a>
+                  <a class="nav-link"><i class="fa fa-broom fa-lg"></i> Chores</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link"><i class="fa fa-address-card fa-lg"></i> Contact</a>
+                  <a class="nav-link"><i class="fa fa-shopping-basket fa-lg"></i> Grocery</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"><i class="fa fa-utensils fa-lg"></i> Recipes</a>
                 </li>
               </ul>
               <!-- Control Modal -->
               <span class="navbar-text ml-auto">
-                <a id="loginButton" class="btn"> <i class="fa fa-sign-in"></i> Login</a>
+                <a id="loginButton" class="btn pl-0 pt-0"> <i class="fa fa-sign-in"></i> Login</a>
               </span>
             </div>
           </div>
@@ -132,6 +137,13 @@
               header.removeClass("navbar-default");
               header.addClass("navbar-clean");
             }
+          }
+        });
+
+        $(window).on("resize", function () {
+          var win = $(this); //this = window
+          if ($("#hamburger-btn").attr("aria-expanded") == "true" && win.width() >= 576) {
+            $("#hamburger-btn").click();
           }
         });
 
