@@ -12,7 +12,7 @@
     "watch:all": "parallelshell 'npm run watch:scss' 'npm run lite'",
     "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts && copyfiles -f fonts/* dist/fonts",
     "imagemin": "imagemin img/* -o dist/img",
-    "usemin": "usemin pages/index.html -d dist --htmlmin -o dist/index.html",
+    "usemin": "usemin pages/budget.html -d dist --htmlmin -o dist/budget.html && usemin pages/chores.html -d dist --htmlmin -o dist/chores.html && usemin pages/grocery.html -d dist --htmlmin -o dist/grocery.html  && usemin pages/recipes.html -d dist --htmlmin -o dist/recipes.html  && usemin pages/index.html -d dist --htmlmin -o dist/index.html",
     "clean": "rimraf dist",
     "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin"
   },
