@@ -7147,6 +7147,13 @@ a.text-dark:hover, a.text-dark:focus {
 body {
   font-family: "Open Sans", sans-serif; }
 
+.icons {
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+  opacity: 0;
+  overflow: hidden; }
+
 header {
   height: 120vh;
   min-height: 400px;
@@ -7184,7 +7191,8 @@ header {
   letter-spacing: -0.02em;
   overflow: hidden;
   color: #ff8a65;
-  position: absolute; }
+  position: absolute;
+  z-index: 1; }
 
 .welcome-small {
   font-family: "script-font", Arial, sans-serif;
@@ -7204,6 +7212,9 @@ header {
   color: #ff8a65;
   font-size: 4rem; }
 
+#welcome-shadow {
+  color: #bf360c; }
+
 @font-face {
   font-family: "script-font";
   src: url("../fonts/eustachio_demo_version-webfont.woff") format("woff2");
@@ -7215,7 +7226,9 @@ header {
   /*1rem = 16px*/
   .welcome-small {
     margin: 0.5rem 0 0 3.25rem;
-    font-size: 1.25rem; } }
+    font-size: 1.25rem; }
+  #welcome-shadow {
+    padding: 0 0 0 0.15rem; } }
 
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
 @media (min-width: 768px) {
@@ -7224,7 +7237,9 @@ header {
   /*1rem = 16px*/
   .welcome-small {
     margin: 1rem 0 0 6rem;
-    font-size: 1.75rem; } }
+    font-size: 1.75rem; }
+  #welcome-shadow {
+    padding: 0 0 0 0.25rem; } }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
@@ -7233,7 +7248,9 @@ header {
   /*1rem = 16px*/
   .welcome-small {
     margin: 1.5rem 0 0 8.5rem;
-    font-size: 2rem; } }
+    font-size: 2rem; }
+  #welcome-shadow {
+    padding: 0 0 0 0.35rem; } }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
@@ -7242,4 +7259,6 @@ header {
   /*1rem = 16px*/
   .welcome-small {
     margin: 2rem 0 0 10rem;
-    font-size: 2rem; } }
+    font-size: 2rem; }
+  #welcome-shadow {
+    padding: 0 0 0 0.5rem; } }

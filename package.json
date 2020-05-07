@@ -2,7 +2,7 @@
   "name": "odenwellness",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "pages/index.html",
   "scripts": {
     "lite": "lite-server",
     "start": "npm run watch:all",
@@ -10,15 +10,11 @@
     "scss": "node-sass -o css/ css/",
     "watch:scss": "onchange 'css/*.scss' -- npm run scss",
     "watch:all": "parallelshell 'npm run watch:scss' 'npm run lite'",
-    "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
+    "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts && copyfiles -f fonts/* dist/fonts",
     "imagemin": "imagemin img/* -o dist/img",
-    "usemin": "usemin index.html -d dist --htmlmin -o dist/index.html",
+    "usemin": "usemin pages/index.html -d dist --htmlmin -o dist/index.html",
     "clean": "rimraf dist",
     "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aaron-odenweller/odenwellness.git"
   },
   "author": "Aaron Odenweller",
   "license": "ISC",
@@ -34,7 +30,7 @@
     "onchange": "^3.3.0",
     "parallelshell": "^3.0.1",
     "rimraf": "^2.6.2",
-    "usemin-cli": "^0.5.1"
+    "usemin-cli": "^0.6.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",

@@ -4,20 +4,17 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <!-- build:css css/main.css -->
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css" />
-    <!-- <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" /> -->
-    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css" />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap-social/bootstrap-social.css" />
+    <link rel="stylesheet" type="text/css" href="../css/styles.css" />
     <!-- endbuild -->
-
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" />
 
     <title>Odenwellness</title>
-    <link rel="icon" href="./img/tree-solid.svg" />
+    <link rel="icon" href="../img/path.png" type="image/x-icon" />
   </head>
   <body>
     <header id="main-header">
@@ -69,6 +66,7 @@
           <div class="col pt-3">
             <div class="col pt-5 text-md-center d-none d-sm-block">
               <div class="welcome-small text-left">Welcome to...</div>
+              <div id="welcome-shadow" class="col welcome">Odenwellness</div>
               <div class="col welcome">Odenwellness</div>
             </div>
           </div>
@@ -115,50 +113,11 @@
       </div>
     </div>
     <!-- End Modal Code -->
-
-    <!-- Optional JavaScript -->
-    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script>
-      $(function () {
-        var header = $(".navbar");
-
-        $(window).scroll(function () {
-          var scroll = $(window).scrollTop();
-
-          if (scroll >= 50) {
-            if ($("#hamburger-btn").attr("aria-expanded") == "false") {
-              header.removeClass("navbar-clean");
-              header.addClass("navbar-default");
-            }
-          } else {
-            if ($("#hamburger-btn").attr("aria-expanded") == "false") {
-              header.removeClass("navbar-default");
-              header.addClass("navbar-clean");
-            }
-          }
-        });
-
-        $(window).on("resize", function () {
-          var win = $(this); //this = window
-          if ($("#hamburger-btn").attr("aria-expanded") == "true" && win.width() >= 576) {
-            $("#hamburger-btn").click();
-          }
-        });
-
-        $("#loginButton").click(function () {
-          $("#loginModal").modal("show");
-        });
-
-        $("#odenwellnessNavbar").on("show.bs.collapse	", function () {
-          $(".navbar").addClass("navbar-default");
-        });
-
-        $("#odenwellnessNavbar").on("hide.bs.collapse", function () {
-          $(".navbar").removeClass("navbar-default");
-        });
-      });
-    </script>
+    <!-- build:js js/main.js -->
+    <script src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../js/scripts.js"></script>
+    <!-- endbuild -->
   </body>
 </html>
