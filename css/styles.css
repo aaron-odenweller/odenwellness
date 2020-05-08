@@ -7181,6 +7181,9 @@ header {
   transition: 0.3s;
   background-color: #004d40; }
 
+#loginButton {
+  border: 0; }
+
 .welcome {
   font-family: "script-font", Arial, sans-serif;
   font-weight: normal;
