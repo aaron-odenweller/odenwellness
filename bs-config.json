@@ -1,8 +1,0 @@
-{
-  "port": 8000,
-  "injectChanges": true,
-
-  "server": {
-    "baseDir": "./dist"
-  }
-}

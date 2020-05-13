@@ -20,11 +20,12 @@ body {
 }
 
 header {
-  height: 120vh;
   min-height: 400px;
   background-position: center;
   background-size: cover;
   background-image: url("../img/rainier.jpg");
+  height: 120vh;
+  background-attachment: fixed;
 }
 
 .site-footer {
@@ -99,6 +100,7 @@ header {
 
 #welcome-shadow {
   color: $color-script-shadow;
+  text-shadow: -1px 0 $color-script-shadow, 0 1px $color-script-shadow, 1px 0 $color-script-shadow, 0 -1px $color-script-shadow;
 }
 
 @font-face {

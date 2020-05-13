@@ -7155,11 +7155,12 @@ body {
   overflow: hidden; }
 
 header {
-  height: 120vh;
   min-height: 400px;
   background-position: center;
   background-size: cover;
-  background-image: url("../img/rainier.jpg"); }
+  background-image: url("../img/rainier.jpg");
+  height: 120vh;
+  background-attachment: fixed; }
 
 .site-footer {
   background-image: linear-gradient(#b7a8f8, white);
@@ -7216,7 +7217,8 @@ header {
   font-size: 4rem; }
 
 #welcome-shadow {
-  color: #bf360c; }
+  color: #bf360c;
+  text-shadow: -1px 0 #bf360c, 0 1px #bf360c, 1px 0 #bf360c, 0 -1px #bf360c; }
 
 @font-face {
   font-family: "script-font";
@@ -7265,3 +7267,6 @@ header {
     font-size: 2rem; }
   #welcome-shadow {
     padding: 0 0 0 0.5rem; } }
+
+/*css for pagination*/
+/*Example of custom colors for pagination*/

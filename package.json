@@ -2,9 +2,9 @@
   "name": "odenwellness",
   "version": "1.0.0",
   "description": "",
-  "main": "pages/index.html",
+  "main": "index.html",
   "scripts": {
-    "lite": "lite-server",
+    "lite": "lite-server --baseDir='./dist'",
     "start": "npm run watch:all",
     "test": "echo \"Error: no test specified\" && exit 1",
     "scss": "node-sass -o css/ css/",
@@ -12,9 +12,9 @@
     "watch:all": "parallelshell 'npm run watch:scss' 'npm run lite'",
     "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts && copyfiles -f fonts/* dist/fonts",
     "imagemin": "imagemin img/* -o dist/img",
-    "usemin": "usemin pages/budget.html -d dist --htmlmin -o dist/budget.html && usemin pages/chores.html -d dist --htmlmin -o dist/chores.html && usemin pages/grocery.html -d dist --htmlmin -o dist/grocery.html  && usemin pages/recipes.html -d dist --htmlmin -o dist/recipes.html  && usemin pages/index.html -d dist --htmlmin -o dist/index.html",
+    "usemin": "usemin budget.html -d dist --htmlmin -o dist/budget.html && usemin chores.html -d dist --htmlmin -o dist/chores.html && usemin grocery.html -d dist --htmlmin -o dist/grocery.html  && usemin recipes.html -d dist --htmlmin -o dist/recipes.html  && usemin index.html -d dist --htmlmin -o dist/index.html",
     "clean": "rimraf dist",
-    "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin"
+    "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run scss && npm run usemin"
   },
   "author": "Aaron Odenweller",
   "license": "ISC",

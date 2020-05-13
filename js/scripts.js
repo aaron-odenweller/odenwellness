@@ -32,6 +32,10 @@ $(function () {
     $("#loginModal").modal("show");
   });
 
+  $("#recipeButton").click(function () {
+    $("#recipeModal").modal("show");
+  });
+
   $("#odenwellnessNavbar").on("show.bs.collapse	", function () {
     $(".navbar").addClass("navbar-default");
   });
@@ -39,4 +43,51 @@ $(function () {
   $("#odenwellnessNavbar").on("hide.bs.collapse", function () {
     $(".navbar").removeClass("navbar-default");
   });
+
+  //BEGIN: RECIPE FORM
+
+  function logSubmit(event) {
+    event.preventDefault();
+
+    console.log("addRecipe");
+    console.log(event.target);
+
+    let title = $(event.target).find("#recipeTitle")[0].value;
+    let steps = $(event.target).find("#recipeSteps")[0].value;
+    console.log(title);
+    console.log(steps);
+
+    var cardContainer = document.getElementById("card-container");
+    createRecipeCard({ title: title, steps: steps }, cardContainer);
+    $("#recipeModal").modal("toggle");
+    return false;
+  }
+
+  const form = document.getElementById("recipeForm");
+  form.addEventListener("submit", logSubmit);
+
+  //END: RECIPE FORM
+
+  let createRecipeCard = (values, container) => {
+    let card = document.createElement("div");
+    card.className = "card shadow cursor-pointer";
+
+    let cardBody = document.createElement("div");
+    cardBody.className = "card-body";
+
+    let title = document.createElement("h5");
+    title.innerText = values.title;
+    title.className = "card-title";
+
+    let color = document.createElement("div");
+    color.innerText = values.steps;
+    color.className = "card-color";
+
+    cardBody.appendChild(title);
+    cardBody.appendChild(color);
+    card.appendChild(cardBody);
+    container.appendChild(card);
+  };
+
+  //END ADD CARD
 });
