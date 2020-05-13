@@ -67,16 +67,23 @@ $(function () {
   const form = document.getElementById("recipeForm");
   form.addEventListener("submit", logSubmit);
 
-  //END: RECIPE FORM
-
   let createRecipeCard = (values, container) => {
     let col = document.createElement("div");
-    col.className = "col mb-4";
+    col.className = "col mb-4 parent";
+
+    // let closeDiv = document.createElement("div");
+    // closeDiv.className = "thumbnail";
+
+    let close = document.createElement("a");
+    close.href = "#";
+    close.className = "close";
+    close.innerText = "x";
+    close.type = "button";
 
     let image = document.createElement("img");
-    image.src = "...";
-    image.alt = "...";
-    image.className = "card-img-top";
+    image.src = "../img/path.png";
+    image.alt = "../img/path.png";
+    image.className = "card-img-top img-responsive";
 
     let card = document.createElement("div");
     card.className = "card shadow pointer";
@@ -92,12 +99,26 @@ $(function () {
     text.innerText = values.steps;
     text.className = "text-truncate";
 
+    //closeDiv.appendChild(close);
     cardBody.appendChild(title);
     cardBody.appendChild(text);
+    card.appendChild(close);
     card.appendChild(image);
     card.appendChild(cardBody);
+    // closeDiv.appendChild(card);
     col.appendChild(card);
     container.appendChild(col);
+
+    //END: RECIPE FORM
+    $(".close").click(function () {
+      console.log("hello");
+      var $target = $(this).closest("div");
+      $target.hide("slow", function () {
+        console.log("hello");
+
+        $target.remove();
+      });
+    });
   };
 
   //END ADD CARD
