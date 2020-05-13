@@ -70,11 +70,19 @@ $(function () {
   //END: RECIPE FORM
 
   let createRecipeCard = (values, container) => {
+    let col = document.createElement("div");
+    col.className = "col mb-4";
+
+    let image = document.createElement("img");
+    image.src = "...";
+    image.alt = "...";
+    image.className = "card-img-top";
+
     let card = document.createElement("div");
-    card.className = "card shadow pointer col-md-3 mr-1 mt-1";
+    card.className = "card shadow pointer";
 
     let cardBody = document.createElement("div");
-    cardBody.className = "card-body p-1 col-12 ";
+    cardBody.className = "card-body";
 
     let title = document.createElement("h5");
     title.innerText = values.title;
@@ -86,8 +94,10 @@ $(function () {
 
     cardBody.appendChild(title);
     cardBody.appendChild(text);
+    card.appendChild(image);
     card.appendChild(cardBody);
-    container.appendChild(card);
+    col.appendChild(card);
+    container.appendChild(col);
   };
 
   //END ADD CARD
