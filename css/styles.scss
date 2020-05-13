@@ -103,6 +103,15 @@ header {
   text-shadow: -1px 0 $color-script-shadow, 0 1px $color-script-shadow, 1px 0 $color-script-shadow, 0 -1px $color-script-shadow;
 }
 
+.truncate-image {
+  max-height: 40vh;
+  overflow: hidden;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
 @font-face {
   font-family: "script-font";
   src: url("../fonts/eustachio_demo_version-webfont.woff") format("woff2");

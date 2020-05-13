@@ -48,6 +48,7 @@ $(function () {
 
   function logSubmit(event) {
     event.preventDefault();
+    $("#recipe-hidden").addClass("truncate-image");
 
     console.log("addRecipe");
     console.log(event.target);
@@ -70,21 +71,21 @@ $(function () {
 
   let createRecipeCard = (values, container) => {
     let card = document.createElement("div");
-    card.className = "card shadow cursor-pointer";
+    card.className = "card shadow pointer col-md-3 mr-1 mt-1";
 
     let cardBody = document.createElement("div");
-    cardBody.className = "card-body";
+    cardBody.className = "card-body p-1 col-12 ";
 
     let title = document.createElement("h5");
     title.innerText = values.title;
     title.className = "card-title";
 
-    let color = document.createElement("div");
-    color.innerText = values.steps;
-    color.className = "card-color";
+    let text = document.createElement("div");
+    text.innerText = values.steps;
+    text.className = "text-truncate";
 
     cardBody.appendChild(title);
-    cardBody.appendChild(color);
+    cardBody.appendChild(text);
     card.appendChild(cardBody);
     container.appendChild(card);
   };

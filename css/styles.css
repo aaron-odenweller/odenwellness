@@ -7220,6 +7220,13 @@ header {
   color: #bf360c;
   text-shadow: -1px 0 #bf360c, 0 1px #bf360c, 1px 0 #bf360c, 0 -1px #bf360c; }
 
+.truncate-image {
+  max-height: 40vh;
+  overflow: hidden; }
+
+.pointer {
+  cursor: pointer; }
+
 @font-face {
   font-family: "script-font";
   src: url("../fonts/eustachio_demo_version-webfont.woff") format("woff2");
@@ -7267,6 +7274,3 @@ header {
     font-size: 2rem; }
   #welcome-shadow {
     padding: 0 0 0 0.5rem; } }
-
-/*css for pagination*/
-/*Example of custom colors for pagination*/

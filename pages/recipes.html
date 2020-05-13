@@ -17,69 +17,73 @@
     <link rel="icon" href="../img/path.png" type="image/x-icon" />
   </head>
   <body>
-    <header class="page-header">
-      <div class="container">
-        <nav class="navbar navbar-expand-sm navbar-clean">
-          <div class="container-fluid">
-            <div class="col-6 d-block d-sm-none welcome-nav">Recipes</div>
-            <button
-              id="hamburger-btn"
-              class="navbar-toggler ml-auto"
-              type="button"
-              data-toggle="collapse"
-              data-target="#odenwellnessNavbar"
-              role="button"
-              aria-expanded="false"
-              aria-controls="odenwellnessNavbar"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="odenwellnessNavbar">
-              <ul class="navbar-nav pt-2">
-                <li class="nav-item">
-                  <a class="nav-link" href="../index.html"><i class="fa fa-home fa-lg"></i> Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="budget.html"><i class="fa fa-wallet fa-lg"></i> Budget</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="chores.html"><i class="fa fa-broom fa-lg"></i> Chores</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="grocery.html"><i class="fa fa-shopping-basket fa-lg"></i> Grocery</a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="#"><i class="fa fa-utensils fa-lg"></i> Recipes</a>
-                </li>
-              </ul>
-              <!-- Control Recipe Modal -->
-              <span class="navbar-text ml-auto">
-                <a id="recipeButton" class="btn pl-0 pt-0"> <i class="fa fa-sign-in"></i> Add Recipe</a>
-              </span>
+    <div id="recipe-hidden">
+      <header class="page-header">
+        <div class="container">
+          <nav class="navbar navbar-expand-sm navbar-clean">
+            <div class="container-fluid">
+              <div class="col-6 d-block d-sm-none welcome-nav">Recipes</div>
+              <button
+                id="hamburger-btn"
+                class="navbar-toggler ml-auto"
+                type="button"
+                data-toggle="collapse"
+                data-target="#odenwellnessNavbar"
+                role="button"
+                aria-expanded="false"
+                aria-controls="odenwellnessNavbar"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="odenwellnessNavbar">
+                <ul class="navbar-nav pt-2">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../index.html"><i class="fa fa-home fa-lg"></i> Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="budget.html"><i class="fa fa-wallet fa-lg"></i> Budget</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="chores.html"><i class="fa fa-broom fa-lg"></i> Chores</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="grocery.html"><i class="fa fa-shopping-basket fa-lg"></i> Grocery</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#"><i class="fa fa-utensils fa-lg"></i> Recipes</a>
+                  </li>
+                </ul>
+                <!-- Control Recipe Modal -->
+                <span class="navbar-text ml-auto">
+                  <a id="recipeButton" class="btn pl-0 pt-0"> <i class="fa fa-sign-in"></i> Add Recipe</a>
+                </span>
+              </div>
             </div>
-          </div>
-        </nav>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col pt-3">
-            <div class="col pt-5 text-md-center d-none d-sm-block">
-              <div id="welcome-shadow" class="col welcome">Recipes</div>
-              <div class="col welcome">Recipes</div>
+          </nav>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col pt-3">
+              <div class="col pt-5 text-md-center d-none d-sm-block">
+                <div id="welcome-shadow" class="col welcome">Recipes</div>
+                <div class="col welcome">Recipes</div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </div>
 
     <!-- BEGIN: Card Container -->
+    <!-- <div class="container">
+      <div class="row mt-2 row">
+        <div class="col"> -->
     <div class="container">
-      <div class="row mt-2">
-        <div class="col">
-          <div class="pt-2 mt-2" id="card-container"></div>
-        </div>
-      </div>
+      <div class="pt-2 mt-2 row" id="card-container"></div>
     </div>
+    <!-- </div>
+      </div>
+    </div> -->
     <!-- END: Card Container -->
 
     <!--BEGIN: Add Recipe Model -->
