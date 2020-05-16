@@ -3,6 +3,7 @@
 // as: $(document).ready.(function()...; however, that's outdated syntax. You DON'T need one of these function blocks for every script in order
 // to initialize them.  You can embed more than one disparate script inside of a single function block
 $(function () {
+  var cardToDelete = {};
   var header = $(".navbar");
 
   $(window).scroll(function () {
@@ -32,10 +33,6 @@ $(function () {
     $("#loginModal").modal("show");
   });
 
-  $("#recipeButton").click(function () {
-    $("#recipeModal").modal("show");
-  });
-
   $("#odenwellnessNavbar").on("show.bs.collapse	", function () {
     $(".navbar").addClass("navbar-default");
   });
@@ -44,7 +41,10 @@ $(function () {
     $(".navbar").removeClass("navbar-default");
   });
 
-  //BEGIN: RECIPE FORM
+  //BEGIN: Recipe Page
+  $("#recipeButton").click(function () {
+    $("#recipeModal").modal("show");
+  });
 
   function logSubmit(event) {
     event.preventDefault();
@@ -55,8 +55,6 @@ $(function () {
 
     let title = $(event.target).find("#recipeTitle")[0].value;
     let steps = $(event.target).find("#recipeSteps")[0].value;
-    console.log(title);
-    console.log(steps);
 
     var cardContainer = document.getElementById("card-container");
     createRecipeCard({ title: title, steps: steps }, cardContainer);
@@ -65,19 +63,16 @@ $(function () {
   }
 
   const form = document.getElementById("recipeForm");
-  form.addEventListener("submit", logSubmit);
+  form?.addEventListener("submit", logSubmit);
 
   let createRecipeCard = (values, container) => {
     let col = document.createElement("div");
     col.className = "col mb-4 parent";
 
-    // let closeDiv = document.createElement("div");
-    // closeDiv.className = "thumbnail";
-
     let close = document.createElement("a");
     close.href = "#";
-    close.className = "close";
-    close.innerText = "x";
+    close.className = "close p-1 btn btn-secondary";
+    close.innerText = "remove";
     close.type = "button";
 
     let image = document.createElement("img");
@@ -99,27 +94,41 @@ $(function () {
     text.innerText = values.steps;
     text.className = "text-truncate";
 
-    //closeDiv.appendChild(close);
     cardBody.appendChild(title);
     cardBody.appendChild(text);
     card.appendChild(close);
     card.appendChild(image);
     card.appendChild(cardBody);
-    // closeDiv.appendChild(card);
     col.appendChild(card);
     container.appendChild(col);
 
     //END: RECIPE FORM
-    $(".close").click(function () {
-      console.log("hello");
-      var $target = $(this).closest("div");
-      $target.hide("slow", function () {
-        console.log("hello");
 
-        $target.remove();
-      });
+    //Remove Recipe Card
+    $(".close").click(function () {
+      cardToDelete = $(this).closest("div .parent");
+      $("#confirmDeleteRecipe").modal("show");
     });
+
+    $("#confirmDeleteRecipe").on("show.bs.modal", function (event) {
+      console.log("event");
+      console.log($(event.relatedTarget));
+      var button = $(event.relatedTarget); // Button that triggered the modal
+      document.getElementById("deleteYesBtn").addEventListener("click", removeCard);
+    });
+    $("#confirmDeleteRecipe").on("hidden.bs.modal", function (event) {
+      var button = $(event.relatedTarget); // Button that triggered the modal
+      document.getElementById("deleteYesBtn").removeEventListener("click", removeCard);
+    });
+
+    function removeCard() {
+      cardToDelete.remove();
+      if (!$(container).children("div").hasClass("parent")) {
+        $("#recipe-hidden").removeClass("truncate-image");
+      }
+      $("#confirmDeleteRecipe").modal("hide"); //Write condition to only hide if shown
+    }
   };
 
-  //END ADD CARD
+  //END: Recipe Page
 });
