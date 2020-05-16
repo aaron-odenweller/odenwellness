@@ -1,4 +1,9 @@
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
+// Required
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/navbar";
+@import "../node_modules/bootstrap/scss/utilities";
 
 $color-pale: #cec8ff;
 $color-evergreen: #004d40;
@@ -8,7 +13,12 @@ $color-script-shadow: #bf360c;
 $color-transparent-black: rgba(0, 0, 0, 0.5);
 
 body {
-  font-family: "Open Sans", sans-serif;
+  min-height: 400px;
+  background-position: center;
+  background-size: cover;
+  background-image: url("../img/rainier.jpg");
+  height: 120vh;
+  background-attachment: fixed;
 }
 
 .icons {
@@ -17,15 +27,6 @@ body {
   pointer-events: none;
   opacity: 0;
   overflow: hidden;
-}
-
-header {
-  min-height: 400px;
-  background-position: center;
-  background-size: cover;
-  background-image: url("../img/rainier.jpg");
-  height: 120vh;
-  background-attachment: fixed;
 }
 
 .site-footer {
@@ -101,6 +102,7 @@ header {
 #welcome-shadow {
   color: $color-script-shadow;
   text-shadow: -1px 0 $color-script-shadow, 0 1px $color-script-shadow, 1px 0 $color-script-shadow, 0 -1px $color-script-shadow;
+  position: absolute;
 }
 
 .truncate-image {

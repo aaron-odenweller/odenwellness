@@ -48,7 +48,6 @@ $(function () {
 
   function logSubmit(event) {
     event.preventDefault();
-    $("#recipe-hidden").addClass("truncate-image");
 
     console.log("addRecipe");
     console.log(event.target);
@@ -123,9 +122,7 @@ $(function () {
 
     function removeCard() {
       cardToDelete.remove();
-      if (!$(container).children("div").hasClass("parent")) {
-        $("#recipe-hidden").removeClass("truncate-image");
-      }
+
       $("#confirmDeleteRecipe").modal("hide"); //Write condition to only hide if shown
     }
   };
