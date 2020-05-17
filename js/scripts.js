@@ -4,6 +4,9 @@
 // to initialize them.  You can embed more than one disparate script inside of a single function block
 $(function () {
   var cardToDelete = {};
+  var cardData = [];
+  var rowId = 0;
+
   var header = $(".navbar");
 
   $(window).scroll(function () {
@@ -41,12 +44,12 @@ $(function () {
     $(".navbar").removeClass("navbar-default");
   });
 
-  //BEGIN: Recipe Page
+  //BEGIN: RECIPE FORM
   $("#recipeButton").click(function () {
     $("#recipeModal").modal("show");
   });
 
-  function logSubmit(event) {
+  function submitRecipe(event) {
     event.preventDefault();
 
     console.log("addRecipe");
@@ -54,29 +57,60 @@ $(function () {
 
     let title = $(event.target).find("#recipeTitle")[0].value;
     let steps = $(event.target).find("#recipeSteps")[0].value;
+    rowId++;
+    cardData.push({ rowId: rowId, title: title, steps: steps, defaultImg: "../img/path.png" });
+    var cardContainer = document.getElementById("card-container");
+    createRecipeCard(cardData[cardData.length - 1], cardContainer);
+    $("#recipeModal").modal("toggle");
+    console.log("array");
+    console.log(cardData);
+    return false;
+  }
+
+  // EDIT RECIPE
+  function editRecipe(event) {
+    event.preventDefault();
+    $("#recipeModal").modal("show");
+
+    console.log("editRecipe");
+    console.log(event);
+
+    let title = $(event.target).find("#recipeTitle")[0].value;
+    let steps = $(event.target).find("#recipeSteps")[0].value;
 
     var cardContainer = document.getElementById("card-container");
-    createRecipeCard({ title: title, steps: steps }, cardContainer);
-    $("#recipeModal").modal("toggle");
+
     return false;
   }
 
   const form = document.getElementById("recipeForm");
-  form?.addEventListener("submit", logSubmit);
+  form?.addEventListener("submit", submitRecipe);
+  //END: RECIPE FORM
 
+  // BEGIN BUILD RECIPE CARD
   let createRecipeCard = (values, container) => {
     let col = document.createElement("div");
-    col.className = "col mb-4 parent";
+    col.className = "col mt-2 md-4 parent";
 
-    let close = document.createElement("a");
+    let cardBtnWrapper = document.createElement("div");
+    cardBtnWrapper.className = "row mx-1";
+
+    let edit = document.createElement("a");
+    edit.href = "#";
+    edit.className = "col m-1 btn btn-secondary btn-sm mr-5";
+    edit.innerText = "edit";
+    edit.type = "button";
+    edit.addEventListener("click", editRecipe);
+
+    let close = document.createElement("button");
     close.href = "#";
-    close.className = "close p-1 btn btn-secondary";
-    close.innerText = "remove";
+    close.className = "m-1 btn-sm card-close";
+    close.innerHTML = "&times;";
     close.type = "button";
 
     let image = document.createElement("img");
-    image.src = "../img/path.png";
-    image.alt = "../img/path.png";
+    image.src = values.defaultImg;
+    image.alt = values.defaultImg;
     image.className = "card-img-top img-responsive";
 
     let card = document.createElement("div");
@@ -95,16 +129,18 @@ $(function () {
 
     cardBody.appendChild(title);
     cardBody.appendChild(text);
-    card.appendChild(close);
+    cardBtnWrapper.appendChild(edit);
+
+    cardBtnWrapper.appendChild(close);
+    card.appendChild(cardBtnWrapper);
     card.appendChild(image);
     card.appendChild(cardBody);
     col.appendChild(card);
     container.appendChild(col);
-
-    //END: RECIPE FORM
+    // BEGIN BUILD RECIPE CARD
 
     //Remove Recipe Card
-    $(".close").click(function () {
+    $(".card-close").click(function () {
       cardToDelete = $(this).closest("div .parent");
       $("#confirmDeleteRecipe").modal("show");
     });
